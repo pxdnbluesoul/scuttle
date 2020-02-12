@@ -127,7 +127,7 @@ class PageController extends Controller
                     if(isset($metadata["page_missing"]) && $metadata["page_missing"] == true) {
                         discord(
                             'page-deleted',
-                            "Deleting ".$page->slug." (SCUTTLE ID `".$page->id."`) after it was flagged missing without a Wikidot page ID to reference."
+                            "Deleting `".$page->slug."` (SCUTTLE ID `".$page->id."`) after it was flagged missing without a Wikidot page ID to reference."
                         );
 
                         $page->delete();
@@ -615,7 +615,7 @@ class PageController extends Controller
 
                 discord(
                     'page-deleted',
-                    "Deleting ".$metadata["wikidot_metadata"]["title"]." (SCUTTLE ID `".$page->id."`) after it was flagged missing and then not found at Wikidot."
+                    "Deleting `".$page->slug."` (\"".$metadata["wikidot_metadata"]["title"]."\", SCUTTLE ID `".$page->id."`) after it was flagged missing and then not found at Wikidot."
                 );
             }
             else {
